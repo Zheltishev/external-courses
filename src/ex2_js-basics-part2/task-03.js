@@ -13,7 +13,7 @@ function parity(arr) {
 					even++;
 				}
 				
-				if (element % 2 != 0){
+				if (element % 2 !== 0){
 					odd++;
 				}
 		};
