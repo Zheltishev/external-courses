@@ -1,14 +1,21 @@
-function typeChecking(elem){
-    let typeData = typeof elem;
-    if (typeData === 'number'){
-        if (isNaN(elem)){
-            return undefined;
-        } 
-        return "number";
-    } else if (typeData === 'string'){
-        return "string";
-    } 
-    return undefined;
+function typeChecking(elem) {
+	let typeData = typeof elem;
+
+	switch (typeData) {
+		case 'number': {
+			if (isNaN(elem)) {
+				return undefined;
+			}
+
+			return 'number';
+		}
+		case 'string': {
+			return 'string';
+		}
+		default: {
+			return undefined;
+		}
+	}
 }
 
 module.exports = typeChecking
