@@ -3,7 +3,7 @@ function primeNumbers(num) {
     return `${num} не относится к простым`;
   }
 
-  if (num > 1000) {
+  if (num < 0 || num > 1000) {
     return 'Данные неверны';
   }
 
@@ -12,7 +12,8 @@ function primeNumbers(num) {
       return `Число ${num} - составное число`;
     }
   }
+
   return `Число ${num} - простое число`;
 }
 
-module.exports = primeNumbers
+module.exports = primeNumbers;

@@ -1,9 +1,13 @@
-function maxNumber(arr) {
-  arr.sort(function (a, b) {
-    return a - b;
+function getMaxNumberArray(arr) {
+  let getMaxNumber = arr[0];
+
+  arr.forEach((element) => {
+    if (element > getMaxNumber) {
+      getMaxNumber = element;
+    }
   });
 
-  return arr[arr.length - 1];
-}
+  return getMaxNumber;
+};
 
-module.exports = maxNumber
+module.exports = getMaxNumberArray;

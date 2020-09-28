@@ -1,19 +1,18 @@
 function parity(arr) {
-	let even = 0,
-		odd = 0,
-		zero = 0;
+	let even = 0;
+	let odd = 0;
+	let zero = 0;
 
-	arr.forEach(function (element) {
+	arr.forEach((element) => {
 		let typeData = typeof element;
+
 		if (typeData === 'number' && !isNaN(element)) {
 			if (element === 0) {
-				zero++
-			} else 
+				zero++;
+			} else
 				if (element % 2 === 0) {
 					even++;
-				}
-				
-				if (element % 2 !== 0){
+				} else {
 					odd++;
 				}
 		};
@@ -22,4 +21,4 @@ function parity(arr) {
 	return [even, odd, zero];
 }
 
-module.exports = parity
+module.exports = parity;
