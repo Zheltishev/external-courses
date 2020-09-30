@@ -1,13 +1,12 @@
 function sameElement(arr) {
-	for (let i = 0; i < arr.length; i++) {
-		for (let j = i + 1; j < arr.length; j++) {
-			if (arr[i] === arr[j]) {
-				return true;
-			}
-		}
-	}
+	for (let element in arr) {
+		if (arr[element] !== arr[0]) {
 
-	return false;
+			return false;
+		}
+	};
+
+	return true;
 }
 
 module.exports = sameElement;
