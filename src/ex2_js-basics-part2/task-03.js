@@ -9,12 +9,11 @@ function parity(arr) {
 		if (typeData === 'number' && !isNaN(element)) {
 			if (element === 0) {
 				zero++;
-			} else
-				if (element % 2 === 0) {
-					even++;
-				} else {
-					odd++;
-				}
+			} else if (element % 2 === 0) {
+				even++;
+			} else {
+				odd++;
+			}
 		};
 	});
 

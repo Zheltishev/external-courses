@@ -1,7 +1,8 @@
 function sameElement(arr) {
-	for (let element in arr) {
-		if (arr[element] !== arr[0]) {
+	const firstElementArray = arr[0]
 
+	for (let element in arr) {
+		if (arr[element] !== firstElementArray) {
 			return false;
 		}
 	};
