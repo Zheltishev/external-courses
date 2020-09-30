@@ -1,8 +1,8 @@
-function arrayInfo(elem) {
+function arrayElementInfo(elem) {
 	console.log(`Array length: ${elem.length}`);
 	elem.forEach((element) => console.log(element));
 
 	return;
 };
 
-module.exports = arrayInfo;
+module.exports = arrayElementInfo;
