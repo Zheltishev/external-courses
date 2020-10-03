@@ -1,4 +1,5 @@
-const georgii = {}
+const georgii = {};
+
 georgii.name = 'Georgii';
 georgii.age = 28;
 georgii.wantWorkInEPAM = true;

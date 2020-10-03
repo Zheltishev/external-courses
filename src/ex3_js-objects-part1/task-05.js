@@ -1,7 +1,5 @@
 function methodCopyObj(mainObj) {
-  const copyObj = Object.assign({}, mainObj);
-
-  return copyObj;
+  return Object.assign({}, mainObj);
 }
 
 module.exports = methodCopyObj;
