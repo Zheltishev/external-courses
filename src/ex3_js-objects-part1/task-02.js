@@ -1,4 +1,4 @@
-function objKeys(obj) {
+function logObjectProps(obj) {
   for (let key in obj) {
     console.log(`${key}: ${obj[key]}`);
   };
@@ -6,4 +6,4 @@ function objKeys(obj) {
   return;
 }
 
-module.exports = objKeys;
+module.exports = logObjectProps;
