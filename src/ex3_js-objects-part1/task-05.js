@@ -1,5 +1,5 @@
-function methodCopyObj(mainObj) {
+function createCopyObj(mainObj) {
   return Object.assign({}, mainObj);
 }
 
-module.exports = methodCopyObj;
+module.exports = createCopyObj;

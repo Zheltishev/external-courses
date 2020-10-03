@@ -1,4 +1,4 @@
-function compare(str, objProp) {
+function checkStrInObjPropAndAdd(str, objProp) {
   const obj = objProp;
 
   if (!obj.hasOwnProperty(str)) {
@@ -8,4 +8,4 @@ function compare(str, objProp) {
   return obj;
 }
 
-module.exports = compare;
+module.exports = checkStrInObjPropAndAdd;

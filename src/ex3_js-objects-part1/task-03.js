@@ -1,4 +1,4 @@
-function compare(str, obj) {
+function checkStrInObj(str, obj) {
   if (str in obj) {
     return true;
   };
@@ -6,4 +6,4 @@ function compare(str, obj) {
   return false;
 }
 
-module.exports = compare;
+module.exports = checkStrInObj;
