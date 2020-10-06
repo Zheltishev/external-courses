@@ -1,9 +1,7 @@
 function lowerCamelCaseString(str) {
-  let newStr = str;
-
-  newStr = newStr.split(' ')
+  let newStr = str.split(' ')
     .map((element) => {
-      return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase()
+      return element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
     })
     .join('');
 

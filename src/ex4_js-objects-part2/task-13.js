@@ -1,5 +1,5 @@
 function randomNumberFromZeroToHundred() {
-  return Math.floor(Math.random() * 101);
-};
+  return Math.round(Math.random() * 100);
+}
 
 module.exports = randomNumberFromZeroToHundred;

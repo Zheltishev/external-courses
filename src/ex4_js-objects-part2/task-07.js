@@ -1,11 +1,9 @@
 function stringLengthBYNumber(str, num) {
-  let newStr = str;
-
-  if (newStr.length > num) {
-    newStr = newStr.slice(0, num - 1) + '…';
+  if (str.length > num) {
+    return str.slice(0, num - 1) + '…';
   };
 
-  return newStr;
+  return str;
 };
 
 module.exports = stringLengthBYNumber;
