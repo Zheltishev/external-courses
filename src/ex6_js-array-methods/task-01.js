@@ -7,6 +7,10 @@ function analogSlice(array, begin = 0, end = array.length) {
     start = begin + array.length;
   }
 
+  if (start < 0) {
+    start = 0;
+  }
+
   if (end < 0) {
     finish = end + array.length;
   }

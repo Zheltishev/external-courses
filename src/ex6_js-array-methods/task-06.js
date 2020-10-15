@@ -2,7 +2,7 @@ function analogReduce(array, callback, initialValue) {
   let index = 1;
   let val = array[0];
 
-  if (initialValue) {
+  if (initialValue !== undefined) {
     val = initialValue;
     index = 0;
   }
