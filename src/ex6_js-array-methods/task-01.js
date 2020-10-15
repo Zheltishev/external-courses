@@ -15,6 +15,10 @@ function analogSlice(array, begin = 0, end = array.length) {
     finish = end + array.length;
   }
 
+  if (finish > array.length) {
+    finish = array.length;
+  }
+
   for (let i = start; i < finish; i++) {
     newArr.push(array[i]);
   }
