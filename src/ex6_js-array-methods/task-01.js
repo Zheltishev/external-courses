@@ -1,7 +1,7 @@
 function analogSlice(array, begin = 0, end = array.length) {
   const newArr = [];
-  let start = begin;
   let finish = end;
+  let start = begin;
 
   if (begin < 0) {
     start = begin + array.length;
