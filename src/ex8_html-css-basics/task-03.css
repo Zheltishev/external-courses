@@ -1,0 +1,17 @@
+div {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+}
+
+.version-one {
+  border: 1px solid #000;
+}
+
+.version-two {
+  outline: 1px solid #000;
+}
+
+.version-three {
+  box-shadow: 0 0 5px #000;
+}
