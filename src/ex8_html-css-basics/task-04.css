@@ -1,0 +1,56 @@
+h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 40px;
+  text-align: center;
+}
+
+h2 {
+  font-family: Comic Sans MS;
+  font-size: 1.7em;
+  font-weight: normal;
+  line-height: 120%;
+  text-decoration: underline;
+}
+
+h3 {
+  font-family: sans-serif;
+  font-size: 110%;
+}
+
+.block-lists {
+  background-color: lightskyblue;
+  border: 3px dotted  lightcyan
+}
+
+.block-lists ol li:nth-child(odd) {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.block-lists ul li:nth-child(even) {
+  font-size: 3vh;
+}
+
+.block-description-list {
+  background-color: #e95870;
+  padding: 10px;
+  border: 40px dotted #e95870;
+  background-clip: content-box;
+}
+
+.block-link {
+  background-color: rgba(226, 175, 109, 0.7);
+}
+
+.block-table {
+  background-image: url(http://www.ejin.ru/uploads/posts/2012-05/6de52a13f560c075ce46c8c06d16cd72a6e7c1e0.jpg), url(http://www.gandhinagarportal.com/wp-content/uploads/2013/01/green-city-gandhinagar-portal-bg.jpg);
+  background-size: 20%;
+}
+
+.block-image {
+  height: 200px;
+  background-image: url(http://www.gettyimages.co.uk/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,16 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: #e23c3c;
+}
+
+table {
+  margin: 10px 0;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td, tr {
+  border: 1px solid black;
+  padding: 10px;
+}
