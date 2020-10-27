@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 30px;
 }
@@ -14,7 +18,7 @@ header {
 
 section {
   background: lightgreen;
-  flex-basis: calc(75% - 2rem);
+  flex-basis: 75%;
 }
 
 article {
