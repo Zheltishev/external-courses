@@ -1,0 +1,8 @@
+.circle {
+  clip-path: circle(60px at 20px 100px);
+}
+
+.mask {
+  -webkit-mask-image: url("https://img.icons8.com/ios/452/download.png");
+  -webkit-mask-size: 256px;
+}

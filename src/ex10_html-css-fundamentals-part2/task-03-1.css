@@ -1,0 +1,22 @@
+@import url("task-03-2.css");
+
+table tr td {
+  color: #50637b;
+  padding: 15px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #e3eaf3;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f6fa;
+}
+
+table tr td:first-child {
+  text-transform: capitalize;
+}
+
+table tr:hover {
+  background-color: #e2e5e9;
+}
