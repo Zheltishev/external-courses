@@ -329,7 +329,7 @@ article {
   cursor: pointer;
 }
 
-aside {
+section {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
@@ -342,21 +342,30 @@ aside {
   max-width: 1366px;
 }
 
-.aside-block {
+.section-block {
   max-width: 522px;
   display: flex;
 }
 
-.aside-block-img {
+.section-block-img {
   padding: 0 25px;
 }
 
-.aside-block-text {
+.section-block-text {
   text-align: justify;
 }
 
-.aside-block-text h2 {
+.section-block-text h2 {
   padding: 10px 0;
+  color: #6d6e71;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.section-block-text p {
+  color: #6d6e71;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 @media screen and (max-width: 1366px) {
@@ -406,7 +415,7 @@ aside {
     max-width: 1366px;
   }
 
-  .aside-block {
+  .section-block {
     max-width: 915px;
     display: flex;
     padding: 0 15px;
