@@ -1,0 +1,9 @@
+#table {
+  font-family: Arial;
+}
+
+.headerTable {
+  color: #758697;
+  padding: 15px;
+  text-transform: uppercase;
+}
