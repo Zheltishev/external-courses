@@ -28,7 +28,7 @@ body {
     -o-transform: rotate(-50deg);
   }
 
-  40% {
+  30% {
     transform: rotate(10deg);
     -webkit-transform: rotate(10deg);
     -moz-transform: rotate(10deg);
@@ -45,6 +45,70 @@ body {
   }
 }
 
+.loader2 {
+  display: flex;
+  justify-content: center;
+}
+
+.letter {
+  font-size: 40px;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  animation: letter-loading 2s infinite;
+  -webkit-animation: letter-loading 2s infinite;
+}
+
+#letter1 {
+  animation-delay: 0.2s;
+}
+
+#letter2 {
+  animation-delay: 0.4s;
+}
+
+#letter3 {
+  animation-delay: 0.6s;
+}
+
+#letter4 {
+  animation-delay: 0.8s;
+}
+
+#letter5 {
+  animation-delay: 1s;
+}
+
+#letter6 {
+  animation-delay: 1.2s;
+}
+
+#letter7 {
+  animation-delay: 1.4s;
+}
+
+@keyframes letter-loading {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
 .block {
   position: relative;
   display: flex;
@@ -52,8 +116,8 @@ body {
   width: 100px;
   height: 100px;
   margin: 100px;
-  border-left: 20px solid rgb(0, 183, 255);
-  border-right: 20px solid rgb(0, 183, 255);
+  border-left: 40px solid rgb(0, 183, 255);
+  border-right: 40px solid rgb(0, 183, 255);
 }
 
 .ball {
@@ -96,32 +160,39 @@ body {
   }
 }
 
+.block-figure {
+  position: relative;
+}
+
+/* infinite animation (changing background: box-shadow) */
+
 .figure {
-  width: 300px;
-  height: 300px;
-  margin: 100px;
-  background: linear-gradient(
-    45deg,
-    #eb4b2e 10%,
-    #25aeb8 30%,
-    #eb2e8d 70%,
-    #672eeb
-  );
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  background-color: #ffc74f;
+  box-shadow: 0 -200px 150px -100px #50b2f3 inset;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
   animation: figure-transform 10s infinite linear;
   -webkit-animation: figure-transform 10s infinite linear;
 }
 
 @keyframes figure-transform {
-  0% {
+  10% {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    transform: rotate(0) scale(1) skew(0, 0);
   }
 
   20% {
+    background-color: #ffc74f;
+    box-shadow: 0 -200px 150px -100px #50b2f3 inset;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -129,14 +200,9 @@ body {
     -o-border-radius: 0;
   }
 
-  35% {
-    background: linear-gradient(
-      135deg,
-      #2eeb38 10%,
-      #aeb825 30%,
-      #2e51eb 70%,
-      #eb2e47
-    );
+  30% {
+    background-color: #95ff4f;
+    box-shadow: 0 -200px 150px -100px #ec5a9e inset;
     transform: rotate(0) scale(1) skew(0, 0);
     -webkit-transform: rotate(0) scale(1) skew(0, 0);
     -moz-transform: rotate(0) scale(1) skew(0, 0);
@@ -144,28 +210,35 @@ body {
     -o-transform: rotate(0) scale(1) skew(0, 0);
   }
 
+  40% {
+    transform: rotate(0) scale(0.5) skew(10deg, 10deg);
+    -webkit-transform: rotate(0) scale(0.5) skew(10deg, 10deg);
+    -moz-transform: rotate(0) scale(0.5) skew(10deg, 10deg);
+    -ms-transform: rotate(0) scale(0.5) skew(10deg, 10deg);
+    -o-transform: rotate(0) scale(0.5) skew(10deg, 10deg);
+  }
+
   45% {
-    transform: rotate(0deg) scale(0.5) skew(20deg, 20deg);
-    -webkit-transform: rotate(0deg) scale(0.5) skew(20deg, 20deg);
-    -moz-transform: rotate(0deg) scale(0.5) skew(20deg, 20deg);
-    -ms-transform: rotate(0deg) scale(0.5) skew(20deg, 20deg);
-    -o-transform: rotate(0deg) scale(0.5) skew(20deg, 20deg);
+    transform: rotate(90deg) scale(0.5) skew(10deg, 10deg);
+    -webkit-transform: rotate(90deg) scale(0.5) skew(10deg, 10deg);
+    -moz-transform: rotate(90deg) scale(0.5) skew(10deg, 10deg);
+    -ms-transform: rotate(90deg) scale(0.5) skew(10deg, 10deg);
+    -o-transform: rotate(90deg) scale(0.5) skew(10deg, 10deg);
   }
 
   65% {
-    transform: rotate(90deg) scale(1) skew(0, 0);
-    -webkit-transform: rotate(90deg) scale(1) skew(0, 0);
-    -moz-transform: rotate(90deg) scale(1) skew(0, 0);
-    -ms-transform: rotate(90deg) scale(1) skew(0, 0);
-    -o-transform: rotate(90deg) scale(1) skew(0, 0);
+    background-color: #95ff4f;
+    box-shadow: 0 -200px 150px -100px #ec5a9e inset;
+    transform: rotate(0) scale(1) skew(0, 0);
+    -webkit-transform: rotate(0) scale(1) skew(0, 0);
+    -moz-transform: rotate(0) scale(1) skew(0, 0);
+    -ms-transform: rotate(0) scale(1) skew(0, 0);
+    -o-transform: rotate(0) scale(1) skew(0, 0);
   }
 
   80% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
+    background-color: #754fff;
+    box-shadow: 0 -300px 200px -100px #e9ec5a inset;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -173,11 +246,118 @@ body {
     -o-border-radius: 0;
   }
 
-  100% {
+  95% {
+    background-color: #754fff;
+    box-shadow: 0 -300px 200px -100px #e9ec5a inset;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+  }
+
+  100% {
+    background-color: #ffc74f;
+    box-shadow: 0 -200px 150px -100px #50b2f3 inset;
+  }
+}
+
+/* infinite animation (changing background: background-position) */
+
+.figure2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  background: linear-gradient(
+    rgb(255, 103, 56),
+    rgb(252, 255, 99),
+    rgb(46, 255, 255),
+    rgb(78, 105, 255)
+  );
+  background-size: 200% 200%;
+  background-position: 0 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation: figure2-transform 10s infinite linear;
+  -webkit-animation: figure2-transform 10s infinite linear;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes figure2-transform {
+  10% {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
+  20% {
+    background-position: 0 100%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+
+  30% {
+    background-position: 0, 50%;
+    transform: rotate(0) scale(1) skew(0, 0);
+    -webkit-transform: rotate(0) scale(1) skew(0, 0);
+    -moz-transform: rotate(0) scale(1) skew(0, 0);
+    -ms-transform: rotate(0) scale(1) skew(0, 0);
+    -o-transform: rotate(0) scale(1) skew(0, 0);
+  }
+
+  35% {
+    transform: rotate(0) scale(0.5) skew(5deg);
+    -webkit-transform: rotate(0) scale(0.5) skew(5deg);
+    -moz-transform: rotate(0) scale(0.5) skew(5deg);
+    -ms-transform: rotate(0) scale(0.5) skew(5deg);
+    -o-transform: rotate(0) scale(0.5) skew(5deg);
+  }
+
+  50% {
+    transform: rotate(-90deg) scale(0.5) skew(5deg);
+    -webkit-transform: rotate(-90deg) scale(0.5) skew(5deg);
+    -moz-transform: rotate(-90deg) scale(0.5) skew(5deg);
+    -ms-transform: rotate(-90deg) scale(0.5) skew(5deg);
+    -o-transform: rotate(-90deg) scale(0.5) skew(5deg);
+  }
+
+  60% {
+    transform: rotate(0) scale(1) skew(0, 0);
+    -webkit-transform: rotate(0) scale(1) skew(0, 0);
+    -moz-transform: rotate(0) scale(1) skew(0, 0);
+    -ms-transform: rotate(0) scale(1) skew(0, 0);
+    -o-transform: rotate(0) scale(1) skew(0, 0);
+  }
+
+  75% {
+    background-position: 0 50%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+
+  90% {
+    background-position: 0 0;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+
+  100% {
+    background-position: 0 100%;
   }
 }
