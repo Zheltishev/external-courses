@@ -9,18 +9,18 @@ a {
   text-decoration: none;
 }
 
-header {
+button,
+button:active,
+button:focus {
+  outline: none;
+}
+
+.header-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0067a3;
   min-height: 55px;
-}
-
-button,
-button:active,
-button:focus {
-  outline: none;
 }
 
 .logo {
@@ -147,16 +147,16 @@ button:focus {
   fill: #000000;
 }
 
-button.button-header-menu {
+.button-header-menu {
   background: none;
   border: none;
 }
 
-button.button-header-menu:hover {
+.button-header-menu:hover {
   cursor: pointer;
 }
 
-button.button-header-menu svg {
+.button-header-menu svg {
   width: 24px;
   height: 24px;
   fill: #ffffff;
@@ -179,12 +179,12 @@ button.button-header-menu svg {
   -o-transition: all 0.5s ease;
 }
 
-main {
+.main-wrap {
   display: flex;
   align-items: flex-start;
   min-height: 590px;
   background-color: #0079bf;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .task-block {
@@ -213,7 +213,7 @@ main {
   margin: 12px 12px 0 12px;
 }
 
-button.task-block-header-button {
+.task-block-header-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,7 +221,7 @@ button.task-block-header-button {
   border: none;
 }
 
-button.task-block-header-button:hover {
+.task-block-header-button:hover {
   cursor: pointer;
   transform: scale(1.2);
   -webkit-transform: scale(1.2);
@@ -270,7 +270,7 @@ button.task-block-header-button:hover {
   cursor: pointer;
 }
 
-button.task-block-add {
+.task-block-add {
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
@@ -291,7 +291,7 @@ button.task-block-add {
   color: #000000;
 }
 
-footer {
+.footer-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
