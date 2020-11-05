@@ -61,31 +61,31 @@ body {
   -webkit-animation: letter-loading 2s infinite;
 }
 
-#letter1 {
+.letter1 {
   animation-delay: 0.2s;
 }
 
-#letter2 {
+.letter2 {
   animation-delay: 0.4s;
 }
 
-#letter3 {
+.letter3 {
   animation-delay: 0.6s;
 }
 
-#letter4 {
+.letter4 {
   animation-delay: 0.8s;
 }
 
-#letter5 {
+.letter5 {
   animation-delay: 1s;
 }
 
-#letter6 {
+.letter6 {
   animation-delay: 1.2s;
 }
 
-#letter7 {
+.letter7 {
   animation-delay: 1.4s;
 }
 
@@ -109,7 +109,7 @@ body {
   }
 }
 
-.block {
+.ball-container {
   position: relative;
   display: flex;
   align-items: center;
