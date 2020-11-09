@@ -122,7 +122,6 @@ button:focus {
 .header-menu {
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .user-header-menu {
@@ -149,21 +148,8 @@ button:focus {
 }
 
 .button-header-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: none;
   border: none;
-  transform: rotate(0);
-  -webkit-transform: rotate(0);
-  -moz-transform: rotate(0);
-  -ms-transform: rotate(0);
-  -o-transform: rotate(0);
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
 }
 
 .button-header-menu:hover {
@@ -191,63 +177,6 @@ button:focus {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
-}
-
-.rotated-up {
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-}
-
-.dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 47px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.dropdown-menu-active {
-  width: 282px;
-  padding-bottom: 12px;
-  background-color: #0067a3;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.dropdown-menu ul {
-  list-style: none;
-}
-
-.dropdown-menu ul li {
-  padding: 7px 8px;
-  margin: 15px 12px 0 12px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-.dropdown-menu ul li:hover {
-  background-color: #ebecf0;
-  color: #a30000;
-}
-
-.dropdown-menu a {
-  color: #0079bf;
 }
 
 .main-wrap {
