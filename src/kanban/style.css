@@ -284,6 +284,16 @@ button:focus {
   margin: 12px 12px 0 12px;
 }
 
+.task-block-header-title h2 {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.task-block-header-title h2:first-letter {
+  text-transform: uppercase;
+}
+
 .task-block-header-button {
   display: flex;
   justify-content: center;

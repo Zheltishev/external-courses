@@ -71,9 +71,9 @@ if (dataMock === null) {
       issues: [{ id: "task1", name: "test" }],
     },
   ];
-}
 
-localStorage.setItem("dataInfo", JSON.stringify(dataMock));
+  localStorage.setItem("dataInfo", JSON.stringify(dataMock));
+}
 
 // создание блоков с задачами
 const mainWrap = document.querySelector(".main-wrap");
@@ -96,9 +96,11 @@ function renderTaskBlock() {
 
     const taskBlockHeaderTitle = document.createElement("div");
     taskBlockHeaderTitle.className = "task-block-header-title";
-    taskBlockHeaderTitle.innerText =
-      elem.title.charAt(0).toUpperCase() + elem.title.slice(1);
     taskBlockHeader.appendChild(taskBlockHeaderTitle);
+
+    const taskBlockHeaderTitleH2 = document.createElement("h2");
+    taskBlockHeaderTitleH2.innerText = elem.title;
+    taskBlockHeaderTitle.appendChild(taskBlockHeaderTitleH2);
 
     const taskBlockHeaderButton = document.createElement("div");
     taskBlockHeaderButton.className = "task-block-header-button";
