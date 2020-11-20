@@ -81,9 +81,7 @@ const mainWrap = document.querySelector(".main-wrap");
 function renderTaskBlock() {
   // удаление старых блоков
   // полное отрисовывание на будущее, когда новые блоки будут добавлять по кнопке Create new list
-  while (mainWrap.firstChild) {
-    mainWrap.removeChild(mainWrap.firstChild);
-  }
+  mainWrap.innerHTML = "";
 
   dataMock.forEach((elem, index) => {
     let taskBlock = document.createElement("div");
@@ -165,44 +163,34 @@ function choiceTypeFieldNewTask(event) {
   return;
 }
 
-for (let i = 0; i < buttonTaskBlockAdd.length; i++) {
-  buttonTaskBlockAdd[i].addEventListener("click", choiceTypeFieldNewTask);
-}
+buttonTaskBlockAdd.forEach((elem) => {
+  elem.addEventListener("click", choiceTypeFieldNewTask);
+});
 
 // добавление задачи если блок первый
 function addingTaskForFirstBlock() {
   clearFieldNewTask();
 
   // создание input для ввода новой задачи
-  fieldAddingNewTask[0].insertAdjacentHTML(
-    "afterbegin",
-    `
-    <input class="input-new-task field-style" type="text" placeholder="Enter a new task" />
-  `
-  );
-
-  let inputNewTask = document.querySelector(".input-new-task");
+  const inputNewTask = document.createElement("input");
+  inputNewTask.className = "input-new-task field-style";
+  inputNewTask.setAttribute("placeholder", "Enter a new task");
+  fieldAddingNewTask[0].appendChild(inputNewTask);
   inputNewTask.focus();
 
   inputNewTask.addEventListener("blur", () => {
     // если поле пустое удаление поля для задачи
     if (inputNewTask.value === "") {
-      while (fieldAddingNewTask[0].firstChild) {
-        fieldAddingNewTask[0].removeChild(fieldAddingNewTask[0].firstChild);
-      }
+      fieldAddingNewTask[0].innerHTML = "";
     } else {
       // добавление новой задачи в основной список
-      markerTaskList[0].insertAdjacentHTML(
-        "beforeend",
-        `
-        <li class="name-task">${inputNewTask.value}</li>
-      `
-      );
+      const nameTask = document.createElement("li");
+      nameTask.className = "name-task";
+      nameTask.innerText = inputNewTask.value;
+      markerTaskList[0].appendChild(nameTask);
 
       // удаление поля input
-      while (fieldAddingNewTask[0].firstChild) {
-        fieldAddingNewTask[0].removeChild(fieldAddingNewTask[0].firstChild);
-      }
+      fieldAddingNewTask[0].innerHTML = "";
 
       // добавление новой задачи в dataMock
       dataMock[0].count++;
@@ -231,106 +219,91 @@ function addingTaskFromPreviousBlock() {
   clearFieldNewTask();
 
   // добавление select list
-  fieldAddingNewTask[indexNumber].insertAdjacentHTML(
-    "beforeend",
-    `
-  <li class="field-style select-task">Choice task &#8595;</li>
-  <div data-index="${indexNumber}" class="select-task-list"></div>
-`
-  );
+  const selectTaskListItem = document.createElement("li");
+  selectTaskListItem.className = "field-style select-task";
+  selectTaskListItem.innerText = "Choice task";
+  fieldAddingNewTask[indexNumber].appendChild(selectTaskListItem);
 
-  let selectTask = document.querySelectorAll(".select-task");
-  let selectTaskList = document.querySelectorAll(".select-task-list");
+  const selectTaskListDiv = document.createElement("div");
+  selectTaskListDiv.className = "select-task-list";
+  selectTaskListDiv.dataset.index = indexNumber;
+  fieldAddingNewTask[indexNumber].appendChild(selectTaskListDiv);
 
-  for (let i = 0; i < selectTask.length; i++) {
-    selectTask[i].addEventListener("click", (ev) => {
-      selectTask[i].classList.toggle("active");
-      indexNumber = Number(ev.target.parentNode.dataset.index);
+  let selectTask = document.querySelector(".select-task");
+  let selectTaskList = document.querySelector(".select-task-list");
 
-      if (selectTask[i].classList.contains("active")) {
-        // создание select с выводом задач из предыдущего блока
-        dataMock[indexNumber - 1].issues.forEach((elem) => {
-          selectTaskList[i].insertAdjacentHTML(
-            "beforeend",
-            `
-          <li class="field-style temp-task">${elem.name}</li>
-        `
-          );
+  selectTask.addEventListener("click", () => {
+    selectTask.classList.toggle("active");
+    if (selectTask.classList.contains("active")) {
+      // создание select с выводом задач из предыдущего блока
+      dataMock[indexNumber - 1].issues.forEach((elem) => {
+        const tempTaskListItem = document.createElement("li");
+        tempTaskListItem.className = "field-style temp-task";
+        tempTaskListItem.innerText = elem.name;
+        selectTaskList.appendChild(tempTaskListItem);
 
-          return;
-        });
+        return;
+      });
 
-        // выбор и добавление задачи в основной список
-        let tempTask = document.querySelectorAll(".temp-task");
-        for (let j = 0; j < tempTask.length; j++) {
-          tempTask[j].addEventListener("click", () => {
-            // добавление новой задачи в основной список
-            markerTaskList[indexNumber].insertAdjacentHTML(
-              "beforeend",
-              `
-              <li class="name-task">${tempTask[j].textContent}</li>
-            `
-            );
+      // выбор и добавление задачи в основной список
+      let tempTask = document.querySelectorAll(".temp-task");
 
-            // добавление новой задачи в dataMock
-            dataMock[indexNumber].count++;
-            let newTaskData = {
-              id: `task${dataMock[indexNumber].count}`,
-              name: `${tempTask[j].textContent}`,
-            };
+      tempTask.forEach((value) => {
+        value.addEventListener("click", () => {
+          // добавление новой задачи в основной список
+          const nameTask = document.createElement("li");
+          nameTask.className = "name-task";
+          nameTask.innerText = value.textContent;
+          markerTaskList[indexNumber].appendChild(nameTask);
 
-            dataMock[indexNumber].issues.push(newTaskData);
+          // добавление новой задачи в dataMock
+          dataMock[indexNumber].count++;
+          let newTaskData = {
+            id: `task${dataMock[indexNumber].count}`,
+            name: `${value.textContent}`,
+          };
 
-            // удаление выбраной задачи из предшествуюшего блока
-            dataMock[indexNumber - 1].count--;
+          dataMock[indexNumber].issues.push(newTaskData);
 
-            let tempArray = dataMock[indexNumber - 1].issues.filter((val) => {
-              return val.name !== tempTask[j].textContent;
-            });
+          // удаление выбраной задачи из предшествуюшего блока
+          dataMock[indexNumber - 1].count--;
 
-            dataMock[indexNumber - 1].issues = tempArray;
+          let tempArray = dataMock[indexNumber - 1].issues.filter((val) => {
+            return val.name !== value.textContent;
+          });
 
-            // загрузка dataMock в localStorage
-            localStorage.setItem("dataInfo", JSON.stringify(dataMock));
+          dataMock[indexNumber - 1].issues = tempArray;
 
-            // удаление поля input
-            while (fieldAddingNewTask[indexNumber].firstChild) {
-              fieldAddingNewTask[indexNumber].removeChild(
-                fieldAddingNewTask[indexNumber].firstChild
-              );
-            }
+          // загрузка dataMock в localStorage
+          localStorage.setItem("dataInfo", JSON.stringify(dataMock));
 
-            // удаление выбраной задачи из предыдущего блока
-            while (markerTaskList[indexNumber - 1].firstChild) {
-              markerTaskList[indexNumber - 1].removeChild(
-                markerTaskList[indexNumber - 1].firstChild
-              );
-            }
+          // удаление поля input
+          fieldAddingNewTask[indexNumber].innerHTML = "";
 
-            dataMock[indexNumber - 1].issues.forEach((el) => {
-              markerTaskList[indexNumber - 1].insertAdjacentHTML(
-                "beforeend",
-                `
-                <li class="name-task">${el.name}</li>
-              `
-              );
+          // удаление выбраной задачи из предыдущего блока
+          markerTaskList[indexNumber - 1].innerHTML = "";
 
-              return;
-            });
-
-            checkButtonAddStatus();
+          dataMock[indexNumber - 1].issues.forEach((el) => {
+            const nameTaskPrev = document.createElement("li");
+            nameTaskPrev.className = "name-task";
+            nameTaskPrev.innerText = el.name;
+            markerTaskList[indexNumber - 1].appendChild(nameTaskPrev);
 
             return;
           });
-        }
-      } else {
-        // удаление select list
-        while (selectTaskList[i].firstChild) {
-          selectTaskList[i].removeChild(selectTaskList[i].firstChild);
-        }
-      }
-    });
-  }
+
+          checkButtonAddStatus();
+        });
+
+        return;
+      });
+    } else {
+      // удаление select list
+      selectTaskList.innerHTML = "";
+    }
+
+    return;
+  });
 
   return;
 }
@@ -359,9 +332,10 @@ function clearFieldNewTask() {
   // если пользователь несколько раз нажимает на add card
   // если пользователь нажимает add card в другом блоке задач
   fieldAddingNewTask.forEach((el) => {
-    while (el.firstChild) {
-      el.removeChild(el.firstChild);
-    }
+    let tempElement = el;
+    tempElement.innerHTML = "";
+
+    return;
   });
 
   return;
