@@ -49,9 +49,7 @@ class Calculator {
   }
 
   static fetchData(callback) {
-    setTimeout(() => {
-      return callback(500);
-    }, 1000);
+    setTimeout(() => callback(500), 1000);
 
     return this;
   }
