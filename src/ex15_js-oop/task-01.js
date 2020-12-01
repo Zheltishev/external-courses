@@ -13,40 +13,25 @@ Gift.prototype.info = function () {
 };
 
 Gift.prototype.totalWeight = function () {
-  let mass = 0;
+  return this.structure.reduce(function (a, b) {
+    if (a.weight === undefined) {
+      return a + b.weight;
+    }
 
-  this.structure.forEach((elem) => (mass += elem.weight));
-
-  return mass;
+    return a.weight + b.weight;
+  });
 };
 
 Gift.prototype.sortByWeight = function () {
-  this.structure.sort(function (a, b) {
-    if (a.weight > b.weight) {
-      return 1;
-    }
-    if (a.weight < b.weight) {
-      return -1;
-    }
-    return 0;
-  });
+  this.structure.sort((a, b) => a.weight - b.weight);
 };
 
 Gift.prototype.searchByName = function (value) {
   this.structure.forEach((elem) => {
     if (elem.name === value.toLowerCase()) {
-      console.log(elem); // возвращает объект
-      // return elem; // возвращает undefined при вызыве console.log(obj.searchByName('Bounty'))
+      console.log(elem);
     }
   });
-
-  // v2 тоже самое, если return - возвращает undefined
-  // this.structure.find((elem) => {
-  //   if (elem.name === value.toLowerCase()) {
-  //     console.log(elem);
-  //     return elem;
-  //   }
-  // });
 };
 
 const twix = new Sweetness('candy', 'twix', 400);
@@ -55,7 +40,7 @@ const milkyWay = new Sweetness('candy', 'milky way', 500);
 const ferreroRocher = new Sweetness('candy', 'ferrero rocher', 300);
 const obj = new Gift(twix, bounty, milkyWay, ferreroRocher);
 
-console.log(obj.info());
 console.log(obj.totalWeight());
-obj.sortByWeight();
 obj.searchByName('Bounty');
+obj.sortByWeight();
+console.log(obj.info());

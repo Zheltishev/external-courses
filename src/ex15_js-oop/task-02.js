@@ -4,11 +4,11 @@ class ElectricalDevice {
   }
 
   turnOn() {
-    return (this.devicePowerSupply = true);
+    this.devicePowerSupply = true;
   }
 
   turnOff() {
-    return (this.devicePowerSupply = false);
+    this.devicePowerSupply = false;
   }
 }
 
@@ -54,15 +54,15 @@ class Room {
   }
 
   totalPower() {
-    let totalPowerValue = 0;
+    return this.deviceList
+      .filter((elem) => elem.devicePowerSupply === true)
+      .reduce(function (a, b) {
+        if (a.power === undefined) {
+          return a + b.power;
+        }
 
-    this.deviceList.forEach((elem) => {
-      if (elem.devicePowerSupply) {
-        totalPowerValue += elem.power;
-      }
-    });
-
-    return totalPowerValue;
+        return a.power + b.power;
+      });
   }
 
   searchDevice(value) {
