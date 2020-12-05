@@ -6,13 +6,15 @@ function ImitatorFetch(url, method = 'GET', body = null) {
     xhr.send(body);
     xhr.onload = () => {
       if (xhr.readyState !== 4 && xhr.status >= 400) {
-        reject();
+        reject(xhr.statusText);
 
         return;
       }
 
-      resolve(console.log(xhr.response));
+      resolve(xhr.response);
     };
+  }).then((data) => {
+    console.log(data);
   });
 }
 
