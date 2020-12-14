@@ -1,6 +1,6 @@
 import { dataMockPlug } from './datamockplug.js';
 
-let dataMock;
+export let dataMock;
 
 function getDataPockJSON() {
   dataMock = JSON.parse(localStorage.getItem('dataInfo'));
@@ -81,5 +81,3 @@ function renderTaskBlock() {
 
 getDataPockJSON();
 renderTaskBlock();
-
-export { dataMock };
