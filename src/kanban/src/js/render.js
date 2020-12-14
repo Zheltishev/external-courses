@@ -1,12 +1,15 @@
 import { dataMockPlug } from './datamockplug.js';
-export { dataMock, renderTaskBlock };
 
-let dataMock = JSON.parse(localStorage.getItem('dataInfo'));
+let dataMock;
 
-if (dataMock === null) {
-  dataMock = dataMockPlug;
+function getDataPockJSON() {
+  dataMock = JSON.parse(localStorage.getItem('dataInfo'));
 
-  localStorage.setItem('dataInfo', JSON.stringify(dataMock));
+  if (dataMock === null) {
+    dataMock = dataMockPlug;
+
+    localStorage.setItem('dataInfo', JSON.stringify(dataMock));
+  }
 }
 
 // создание блоков с задачами
@@ -73,9 +76,10 @@ function renderTaskBlock() {
     taskBlockAdd.dataset.index = index;
     taskBlockAdd.innerText = 'Add card';
     wrapAdd.appendChild(taskBlockAdd);
-
-    return;
   });
 }
 
+getDataPockJSON();
 renderTaskBlock();
+
+export { dataMock };

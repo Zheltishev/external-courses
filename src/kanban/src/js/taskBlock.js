@@ -1,5 +1,4 @@
 import { dataMock } from './render.js';
-export { buttonTaskBlockAdd };
 
 const buttonTaskBlockAdd = document.querySelectorAll('.task-block-add');
 const fieldAddingNewTask = document.querySelectorAll('.field-adding-new-task');
@@ -14,8 +13,6 @@ function choiceTypeFieldNewTask(event) {
   } else {
     addingTaskFromPreviousBlock();
   }
-
-  return;
 }
 
 buttonTaskBlockAdd.forEach((elem) => {
@@ -62,11 +59,7 @@ function addingTaskForFirstBlock() {
 
       checkButtonAddStatus();
     }
-
-    return;
   });
-
-  return;
 }
 
 // Добавление задачи из предыдущего списка
@@ -149,18 +142,12 @@ function addingTaskFromPreviousBlock() {
 
           checkButtonAddStatus();
         });
-
-        return;
       });
     } else {
       // удаление select list
       selectTaskList.innerHTML = '';
     }
-
-    return;
   });
-
-  return;
 }
 
 // переключение disabled для кнопки add card
@@ -175,8 +162,6 @@ function checkButtonAddStatus() {
     } else {
       buttonTaskBlockAdd[index].removeAttribute('disabled', 'disabled');
     }
-
-    return;
   });
 }
 
@@ -189,9 +174,5 @@ function clearFieldNewTask() {
   fieldAddingNewTask.forEach((el) => {
     let tempElement = el;
     tempElement.innerHTML = '';
-
-    return;
   });
-
-  return;
 }

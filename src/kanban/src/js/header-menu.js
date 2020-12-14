@@ -1,4 +1,4 @@
-export { headerMenu };
+export { headerMenu, createDropdownMenu, rotetedArrow };
 
 const headerMenu = document.querySelector('.header-menu');
 const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -27,8 +27,6 @@ function createDropdownMenu() {
       );
     }
   }
-
-  return;
 }
 
 function rotetedArrow() {
@@ -37,9 +35,4 @@ function rotetedArrow() {
   } else {
     buttonHeaderMenu.classList.add('rotated-up');
   }
-
-  return;
 }
-
-headerMenu.addEventListener('click', createDropdownMenu);
-headerMenu.addEventListener('click', rotetedArrow);
