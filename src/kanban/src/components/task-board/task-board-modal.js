@@ -1,27 +1,14 @@
-import { dataMockPlug } from './datamockplug.js';
+import { mainWrap } from '../main.js';
+import { dataMock } from '../data/datamock.js';
 
-export let dataMock;
-
-function getDataPockJSON() {
-  dataMock = JSON.parse(localStorage.getItem('dataInfo'));
-
-  if (dataMock === null) {
-    dataMock = dataMockPlug;
-
-    localStorage.setItem('dataInfo', JSON.stringify(dataMock));
+export class TaskBoardModal {
+  constructor(title, index) {
+    this.title = title;
+    this.index = index;
   }
-}
 
-// создание блоков с задачами
-const mainWrap = document.querySelector('.main-wrap');
-
-function renderTaskBlock() {
-  // удаление старых блоков
-  // полное отрисовывание на будущее, когда новые блоки будут добавлять по кнопке Create new list
-  mainWrap.innerHTML = '';
-
-  dataMock.forEach((elem, index) => {
-    let taskBlock = document.createElement('div');
+  renderModal() {
+    const taskBlock = document.createElement('div');
     taskBlock.className = 'task-block';
     mainWrap.appendChild(taskBlock);
 
@@ -34,18 +21,22 @@ function renderTaskBlock() {
     taskBlockHeader.appendChild(taskBlockHeaderTitle);
 
     const taskBlockHeaderTitleH2 = document.createElement('h2');
-    taskBlockHeaderTitleH2.innerText = elem.title;
+    taskBlockHeaderTitleH2.innerText = this.title;
     taskBlockHeaderTitle.appendChild(taskBlockHeaderTitleH2);
 
     const taskBlockHeaderButton = document.createElement('div');
     taskBlockHeaderButton.className = 'task-block-header-button';
     taskBlockHeader.appendChild(taskBlockHeaderButton);
 
-    // index на будущее для ex18 при удалении task block
     const iconCircle = document.createElement('div');
     iconCircle.className = 'icon-circle';
-    iconCircle.dataset.index = index;
+    iconCircle.dataset.index = this.index;
     taskBlockHeaderButton.appendChild(iconCircle);
+
+    const taskBlockMenu = document.createElement('div');
+    taskBlockMenu.className = 'task-block-menu';
+    taskBlockMenu.dataset.index = this.index;
+    taskBlock.appendChild(taskBlockMenu);
 
     const taskBlockList = document.createElement('div');
     taskBlockList.className = 'task-block-list';
@@ -55,7 +46,7 @@ function renderTaskBlock() {
     markerTaskList.className = 'marker-task-list';
     taskBlockList.appendChild(markerTaskList);
 
-    dataMock[index].issues.forEach((elem) => {
+    dataMock[this.index].issues.forEach((elem) => {
       const nameTask = document.createElement('li');
       nameTask.className = 'name-task';
       nameTask.innerText = elem.name;
@@ -64,7 +55,7 @@ function renderTaskBlock() {
 
     const fieldAddingNewTask = document.createElement('div');
     fieldAddingNewTask.className = 'field-adding-new-task';
-    fieldAddingNewTask.dataset.index = index;
+    fieldAddingNewTask.dataset.index = this.index;
     taskBlockList.appendChild(fieldAddingNewTask);
 
     const wrapAdd = document.createElement('div');
@@ -73,11 +64,12 @@ function renderTaskBlock() {
 
     const taskBlockAdd = document.createElement('button');
     taskBlockAdd.className = 'task-block-add';
-    taskBlockAdd.dataset.index = index;
+    taskBlockAdd.dataset.index = this.index;
     taskBlockAdd.innerText = 'Add card';
     wrapAdd.appendChild(taskBlockAdd);
-  });
-}
 
-getDataPockJSON();
-renderTaskBlock();
+    if (this.index > 0 && dataMock[this.index - 1].count === 0) {
+      taskBlockAdd.setAttribute('disabled', 'disabled');
+    }
+  }
+}
