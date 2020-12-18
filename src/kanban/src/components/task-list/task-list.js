@@ -17,13 +17,6 @@ export class AddingNewTask {
 
       tempElement.innerHTML = '';
     });
-
-    // let taskBlockMenu = document.querySelectorAll('.task-block-menu');
-    // taskBlockMenu.forEach((el) => {
-    //   let tempElement = el;
-
-    //   tempElement.innerHTML = '';
-    // });
   }
 
   checkButtonAddStatus() {
