@@ -6,17 +6,17 @@ class CountingTasks {
     this.numberFinishedTask = document.querySelector('.number-finished-task');
   }
 
-  coutingNumberTask() {
+  countTasks() {
     let countActiveTask = 0;
     let countFinishTask = 0;
 
     dataMock.forEach((elem, index) => {
-      if (index !== 0 && index !== dataMock.length - 1) {
-        countActiveTask += elem.count;
+      if (index > 0 && index < dataMock.length - 1) {
+        countActiveTask += elem.issues.length;
       }
 
       if (dataMock.length > 0 && index === dataMock.length - 1) {
-        countFinishTask += elem.count;
+        countFinishTask += elem.issues.length;
       }
     });
 

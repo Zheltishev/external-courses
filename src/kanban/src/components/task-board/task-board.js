@@ -1,5 +1,5 @@
 import { mainWrap, indexNumber } from '../main.js';
-import { dataMock, setDataMockJSON } from '../data/datamock.js';
+import { dataMock, setDataMockJSON, setDataValue } from '../data/datamock.js';
 import { TaskBoardModal } from './task-board-modal.js';
 import { countingTasks } from './counting-tasks.js';
 
@@ -47,7 +47,6 @@ export class TaskBoard {
       if (inputTaskName.value !== '') {
         const tepmObj = {
           title: `${inputTaskName.value}`,
-          count: 0,
           issues: [],
         };
 
@@ -72,7 +71,7 @@ export class TaskBoard {
       tempWrapModal.renderModal();
     });
 
-    countingTasks.coutingNumberTask();
+    countingTasks.countTasks();
   }
 
   taskBoardMenuOpen() {
@@ -105,16 +104,7 @@ export class TaskBoard {
   }
 
   removeTaskBoard() {
-    dataMock.splice(this.index, 1);
-
-    // let tempArr = dataMock.filter((elem, index) => {
-    //   if (index !== this.index) {
-    //     return elem;
-    //   }
-    // });
-    // dataMock = tempArr;
-    // Error: Assignment to constant variable
-
+    setDataValue(this.index);
     setDataMockJSON();
     this.renderTaskBoard();
     if (dataMock.length === 0) {

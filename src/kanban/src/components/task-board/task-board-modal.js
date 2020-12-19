@@ -68,7 +68,7 @@ export class TaskBoardModal {
     taskBlockAdd.innerText = 'Add card';
     wrapAdd.appendChild(taskBlockAdd);
 
-    if (this.index > 0 && dataMock[this.index - 1].count === 0) {
+    if (this.index > 0 && dataMock[this.index - 1].issues.length === 0) {
       taskBlockAdd.setAttribute('disabled', 'disabled');
     }
   }

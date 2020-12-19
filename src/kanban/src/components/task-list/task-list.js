@@ -25,7 +25,7 @@ export class AddingNewTask {
         return;
       }
 
-      if (dataMock[index - 1].count === 0) {
+      if (dataMock[index - 1].issues.length === 0) {
         this.buttonTaskBlockAdd[index].setAttribute('disabled', 'disabled');
       } else {
         this.buttonTaskBlockAdd[index].removeAttribute('disabled', 'disabled');
@@ -61,17 +61,16 @@ export class AddingNewTask {
         nameTask.innerText = inputNewTask.value;
         this.markerTaskList[0].appendChild(nameTask);
         this.fieldAddingNewTask[0].innerHTML = '';
-        dataMock[0].count++;
 
         let newTaskData = {
-          id: `task${dataMock[0].count}`,
+          id: `task${dataMock[0].issues.length + 1}`,
           name: `${inputNewTask.value}`,
         };
 
         dataMock[0].issues.push(newTaskData);
         setDataMockJSON();
         this.checkButtonAddStatus();
-        countingTasks.coutingNumberTask();
+        countingTasks.countTasks();
       }
     });
   }
@@ -117,15 +116,13 @@ export class AddingNewTask {
             nameTask.className = 'name-task';
             nameTask.innerText = value.textContent;
             this.markerTaskList[indexNumber].appendChild(nameTask);
-            dataMock[indexNumber].count++;
 
             let newTaskData = {
-              id: `task${dataMock[indexNumber].count}`,
+              id: `task${dataMock[indexNumber].issues.length + 1}`,
               name: `${value.textContent}`,
             };
 
             dataMock[indexNumber].issues.push(newTaskData);
-            dataMock[indexNumber - 1].count--;
 
             let tempArray = dataMock[indexNumber - 1].issues.filter((val) => {
               return val.name !== value.textContent;
@@ -147,7 +144,7 @@ export class AddingNewTask {
             });
 
             this.checkButtonAddStatus();
-            countingTasks.coutingNumberTask();
+            countingTasks.countTasks();
           });
         });
       } else {
